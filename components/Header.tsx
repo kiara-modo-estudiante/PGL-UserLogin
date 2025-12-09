@@ -1,0 +1,42 @@
+import { StyleSheet, Text, View } from "react-native";
+import React from "react";
+import typography from "../theme/typography";
+import colors from "../theme/color";
+
+const Header = () => {
+  return (
+    <View style={styles.container}>
+      <View style={styles.headerTitleContainer}>
+        <Text style={[typography.title, styles.headerTitle]}>Book Up</Text>
+      </View>
+      <Text style={[typography.body, styles.headerSubtitle]}>
+        Shelf control starts here...
+      </Text>
+    </View>
+  );
+};
+
+export default Header;
+
+const styles = StyleSheet.create({
+  container: {
+    margin: 10,
+    width: "100%",
+    alignItems: "center",
+    paddingTop: 20,
+  },
+  headerTitleContainer: {
+    backgroundColor: colors.buttonBackground,
+    paddingVertical: 10,
+    width: "90%",
+    borderRadius: 40,
+    marginBottom: 20,
+  },
+  headerTitle: {
+    textAlign: "center",
+    fontSize: 30,
+  },
+  headerSubtitle: {
+    fontStyle: "italic",
+  },
+});
