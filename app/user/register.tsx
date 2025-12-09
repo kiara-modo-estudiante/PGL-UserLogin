@@ -16,6 +16,47 @@ const Register = () => {
   const [email, setEmail] = useState("");
   const [pswd, setPassword] = useState("");
 
+  async function submitForm(): Promise<void> {
+    const emailValidation = validateEmail(email);
+    if (!emailValidation.isValid) {
+      Alert.alert("Error", emailValidation.message);
+      return;
+    }
+
+    const passwordValidation = validatePassword(pswd);
+    if (!passwordValidation.isValid) {
+      Alert.alert("Error", passwordValidation.message);
+      return;
+    }
+
+    try {
+      const response = await fetch("http://172.20.10.2:5001/auth/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          fullname,
+          email,
+          pswd,
+        }),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || "Error en el registro");
+      }
+
+      Alert.alert("Éxito", "Registro exitoso.");
+    } catch (error: any) {
+      Alert.alert(
+        "Error",
+        error.message ||
+          "No se pudo completar el registro. Inténtalo de nuevo más tarde."
+      );
+    }
+  }
+
   return (
     <View style={styles.container}>
       <Text style={[typography.subheading, styles.title]}>Register</Text>
