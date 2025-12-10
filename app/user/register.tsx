@@ -7,14 +7,19 @@ import {
   Pressable,
 } from "react-native";
 import React, { useState } from "react";
+import { useRouter } from "expo-router";
 import typography from "../../theme/typography";
+import { ValidationResult } from "../../types/user";
 import colors from "../../theme/color";
 import { validateEmail, validatePassword } from "../../utils/inputValidation";
+import { registerUser } from "../../services/api";
 
 const Register = () => {
   const [fullname, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [pswd, setPassword] = useState("");
+
+  const router = useRouter();
 
   async function submitForm(): Promise<void> {
     const emailValidation = validateEmail(email);
@@ -29,31 +34,16 @@ const Register = () => {
       return;
     }
 
-    try {
-      const response = await fetch("http://172.20.10.2:5001/auth/register", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          fullname,
-          email,
-          pswd,
-        }),
-      });
+    const response: ValidationResult = await registerUser(
+      fullname,
+      email,
+      pswd
+    );
 
-      if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.message || "Error en el registro");
-      }
-
-      Alert.alert("Éxito", "Registro exitoso.");
-    } catch (error: any) {
-      Alert.alert(
-        "Error",
-        error.message ||
-          "No se pudo completar el registro. Inténtalo de nuevo más tarde."
-      );
+    if (!response.isValid) {
+      Alert.alert("Error", response.message);
+    } else {
+      router.push("/user/login");
     }
   }
 
