@@ -49,9 +49,11 @@ const Register = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={[typography.subheading, styles.title]}>Register</Text>
+      <Text style={[typography.subheading, styles.title]}>
+        Registro de Usuario
+      </Text>
       <View style={styles.inputField}>
-        <Text style={typography.label}>Full Name: </Text>
+        <Text style={typography.label}>Nombre completo: </Text>
         <TextInput
           placeholder="Pepe Benavente"
           style={styles.input}
@@ -60,7 +62,7 @@ const Register = () => {
         />
       </View>
       <View style={styles.inputField}>
-        <Text style={typography.label}>Email address: </Text>
+        <Text style={typography.label}>Email: </Text>
         <TextInput
           placeholder="pepe@email.es"
           keyboardType="email-address"
@@ -70,7 +72,7 @@ const Register = () => {
         />
       </View>
       <View style={styles.inputField}>
-        <Text style={typography.label}>Password: </Text>
+        <Text style={typography.label}>Contraseña: </Text>
         <TextInput
           placeholder="Password"
           secureTextEntry
@@ -80,7 +82,13 @@ const Register = () => {
         />
       </View>
       <Pressable onPress={submitForm} style={styles.button}>
-        <Text style={typography.button}>Register Now!</Text>
+        <Text style={typography.button}>Regístrate</Text>
+      </Pressable>
+      <Pressable
+        onPress={() => router.push("/user/login")}
+        style={styles.button}
+      >
+        <Text style={typography.button}>Ya tengo una cuenta</Text>
       </Pressable>
     </View>
   );
@@ -98,6 +106,7 @@ const styles = StyleSheet.create({
   },
   title: {
     textAlign: "center",
+    marginBottom: 20,
   },
   inputField: {
     marginBottom: 10,
@@ -113,7 +122,8 @@ const styles = StyleSheet.create({
     padding: 10,
     borderRadius: 15,
     alignItems: "center",
-    width: 150,
+    width: 200,
     alignSelf: "center",
+    marginTop: 10,
   },
 });

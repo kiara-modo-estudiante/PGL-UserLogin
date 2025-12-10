@@ -5,9 +5,9 @@
 En la unidad anterior de la asignatura se refactorizó un portfolio, cambiando tambien sus valores para fuera un portfolio propio.
 Aquí muestro el proyecto anterior a reciclar:
 
-| ![Hobbies](./images/02-doc/hobbies_before.jpeg) | ![Repo](./images/02-doc/repo_before.jpeg) |
-| ----------------------------------------------- | ----------------------------------------- |
-| Pantalla de Hobbies                             | Pantalla de Repo                          |
+| ![Hobbies](./images/navigation/02-doc/hobbies_before.jpeg) | ![Repo](./images/navigation/02-doc/repo_before.jpeg) |
+| ---------------------------------------------------------- | ---------------------------------------------------- |
+| Pantalla de Hobbies                                        | Pantalla de Repo                                     |
 
 A continuación, explicaré como he reclijado dicho repositorio paso a paso para incluirlo en esta práctica con navegación
 
@@ -82,8 +82,8 @@ En esta práctica, se ha implementado un sistema de navegación basado en pesta�
 
 ## Captura del Resultado Final
 
-| ![Hobbies](./images/02-doc/hobbies_after.jpeg) | ![Repo](./images/02-doc/repo_after.jpeg) |
-| ---------------------------------------------- | ---------------------------------------- |
-| Pantalla de Hobbies                            | Pantalla de Repo                         |
+| ![Hobbies](./images/navigation/02-doc/hobbies_after.jpeg) | ![Repo](./images/navigation/02-doc/repo_after.jpeg) |
+| --------------------------------------------------------- | --------------------------------------------------- |
+| Pantalla de Hobbies                                       | Pantalla de Repo                                    |
 
 [<- Volver al README](../README.md)
