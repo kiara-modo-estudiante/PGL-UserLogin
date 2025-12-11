@@ -1,11 +1,46 @@
-import { Pressable, StyleSheet, Text, TextInput, View } from "react-native";
+import {
+  Alert,
+  Pressable,
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
+} from "react-native";
 import React, { useState } from "react";
 import colors from "../../theme/color";
 import typography from "../../theme/typography";
+import { validateEmail, validatePassword } from "../../utils/inputValidation";
+import { loginUser } from "../../services/api";
+import { useRouter } from "expo-router";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [pswd, setPassword] = useState("");
+  const router = useRouter();
+
+  async function submitForm(): Promise<void> {
+    const emailValidation = validateEmail(email);
+    if (!emailValidation.isValid) {
+      Alert.alert("Error", emailValidation.message);
+      return;
+    }
+
+    const passwordValidation = validatePassword(pswd);
+    if (!passwordValidation.isValid) {
+      Alert.alert("Error", passwordValidation.message);
+      return;
+    }
+
+    const response = await loginUser(email, pswd);
+
+    if (!response.isValid) {
+      Alert.alert("Error", response.message);
+    } else {
+      Alert.alert("Éxito", response.message, [
+        { text: "OK", onPress: () => router.push("/welcome") },
+      ]);
+    }
+  }
 
   return (
     <View style={styles.container}>
@@ -30,9 +65,9 @@ const Login = () => {
           onChangeText={setPassword}
         />
       </View>
-      {/* <Pressable onPress={submitForm} style={styles.button}>
-        <Text style={typography.button}>Register Now!</Text>
-      </Pressable> */}
+      <Pressable onPress={submitForm} style={styles.button}>
+        <Text style={typography.button}>Log In</Text>
+      </Pressable>
     </View>
   );
 };
