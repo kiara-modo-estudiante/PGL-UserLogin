@@ -76,6 +76,15 @@ const Login = () => {
       <Pressable onPress={submitForm} style={styles.button}>
         <Text style={typography.button}>Log In</Text>
       </Pressable>
+      <View style={styles.registerContainer}>
+        <Text style={typography.label}>Don't have an account?</Text>
+        <Text
+          style={styles.registerLink}
+          onPress={() => router.push("/user/register")}
+        >
+          Register here
+        </Text>
+      </View>
     </View>
   );
 };
@@ -109,5 +118,18 @@ const styles = StyleSheet.create({
     alignItems: "center",
     width: 150,
     alignSelf: "center",
+  },
+  registerContainer: {
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 20,
+  },
+  registerLink: {
+    marginLeft: 5,
+    fontSize: 18,
+    fontWeight: 500,
+    color: "blue",
+    textDecorationLine: "underline",
   },
 });
