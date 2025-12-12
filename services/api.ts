@@ -1,6 +1,6 @@
 import { ValidationResult, ValidationResultWithToken } from "../types/user";
 
-const IP = "172.20.10.2";
+const IP = "192.168.0.209";
 const PORT = "5001";
 
 export async function registerUser(
