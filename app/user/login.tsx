@@ -12,6 +12,7 @@ import typography from "../../theme/typography";
 import { validateEmail, validatePassword } from "../../utils/inputValidation";
 import { loginUser } from "../../services/api";
 import { useRouter } from "expo-router";
+import { saveToken } from "../../services/storage";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -36,9 +37,16 @@ const Login = () => {
     if (!response.isValid) {
       Alert.alert("Error", response.message);
     } else {
-      Alert.alert("Éxito", response.message, [
-        { text: "OK", onPress: () => router.push("/welcome") },
-      ]);
+      try {
+        if (response.token) {
+          await saveToken(response.token);
+        }
+        Alert.alert("Éxito", response.message, [
+          { text: "OK", onPress: () => router.push("/welcome") },
+        ]);
+      } catch (error) {
+        Alert.alert("Error", "No se pudo guardar el token.");
+      }
     }
   }
 
