@@ -1,4 +1,4 @@
-import { ValidationResult } from "../types/user";
+import { ValidationResult, ValidationResultWithToken } from "../types/user";
 
 const IP = "172.20.10.2";
 const PORT = "5001";
@@ -61,7 +61,7 @@ export async function registerUser(
 export async function loginUser(
   email: string,
   pswd: string
-): Promise<ValidationResult> {
+): Promise<ValidationResultWithToken> {
   try {
     const response = await fetch(`http://${IP}:${PORT}/auth/login`, {
       method: "POST",
@@ -102,7 +102,12 @@ export async function loginUser(
       return validationResult;
     }
 
-    return { isValid: true, message: "¡Inicio de sesión exitoso!" };
+    const data = await response.json();
+    return {
+      isValid: true,
+      message: "¡Inicio de sesión exitoso!",
+      token: data.token,
+    };
   } catch (error) {
     return {
       isValid: false,
