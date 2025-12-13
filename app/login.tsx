@@ -7,12 +7,12 @@ import {
   View,
 } from "react-native";
 import React, { useState } from "react";
-import colors from "../../theme/color";
-import typography from "../../theme/typography";
-import { validateEmail, validatePassword } from "../../utils/inputValidation";
-import { loginUser } from "../../services/api";
+import colors from "../theme/color";
+import typography from "../theme/typography";
+import { validateEmail, validatePassword } from "../utils/inputValidation";
+import { loginUser } from "../services/api";
 import { useRouter } from "expo-router";
-import { saveToken } from "../../services/storage";
+import { saveToken } from "../services/storage";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -52,9 +52,11 @@ const Login = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={[typography.subheading, styles.title]}>Log In</Text>
+      <Text style={[typography.subheading, styles.title]}>
+        Inicio de Sesión
+      </Text>
       <View style={styles.inputField}>
-        <Text style={typography.label}>Email address: </Text>
+        <Text style={typography.label}>Email: </Text>
         <TextInput
           placeholder="pepe@email.es"
           keyboardType="email-address"
@@ -64,7 +66,7 @@ const Login = () => {
         />
       </View>
       <View style={styles.inputField}>
-        <Text style={typography.label}>Password: </Text>
+        <Text style={typography.label}>Contraseña: </Text>
         <TextInput
           placeholder="Password"
           secureTextEntry
@@ -74,15 +76,15 @@ const Login = () => {
         />
       </View>
       <Pressable onPress={submitForm} style={styles.button}>
-        <Text style={typography.button}>Log In</Text>
+        <Text style={typography.button}>Iniciar sesión</Text>
       </Pressable>
       <View style={styles.registerContainer}>
-        <Text style={typography.label}>Don't have an account?</Text>
+        <Text style={typography.label}>¿No tiene una cuenta?</Text>
         <Text
           style={styles.registerLink}
-          onPress={() => router.push("/(user)/register")}
+          onPress={() => router.push("/register")}
         >
-          Register here
+          Regístrate
         </Text>
       </View>
     </View>
