@@ -2,13 +2,13 @@ import { FontAwesome5 } from "@expo/vector-icons";
 import React, { useState } from "react";
 import { Pressable, StyleSheet, Text, View } from "react-native";
 import { useRouter } from "expo-router";
-import { useBookContext } from "../../context/BookContext";
-import Header from "../../components/Header";
-import CounterRow from "../../components/CounterRow";
-import typography from "../../theme/typography";
-import BookList from "../../components/BookList";
-import DeleteListConfirmation from "../../components/modals/DeleteListConfirmation";
-import colors from "../../theme/color";
+import { useBookContext } from "../../../context/BookContext";
+import Header from "../../../components/Header";
+import CounterRow from "../../../components/CounterRow";
+import typography from "../../../theme/typography";
+import BookList from "../../../components/BookList";
+import DeleteListConfirmation from "../../../components/modals/DeleteListConfirmation";
+import colors from "../../../theme/color";
 
 const Home = () => {
   const router = useRouter();

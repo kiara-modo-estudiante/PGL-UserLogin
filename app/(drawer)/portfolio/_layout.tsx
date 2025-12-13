@@ -1,7 +1,7 @@
 import { FontAwesome5 } from "@expo/vector-icons";
 import { Tabs } from "expo-router";
-import Card from "../../components/Card";
-import { aboutMeCard } from "../../data/about";
+import Card from "../../../components/Card";
+import { aboutMeCard } from "../../../data/about";
 
 export default function Layout() {
   return (

@@ -1,8 +1,8 @@
 import { useRouter } from "expo-router";
 import { View, StyleSheet } from "react-native";
 import { FontAwesome5 } from "@expo/vector-icons";
-import colors from "../../theme/color";
-import BookForm from "../../components/BookForm";
+import colors from "../../../theme/color";
+import BookForm from "../../../components/BookForm";
 
 export default function Modal() {
   const router = useRouter();

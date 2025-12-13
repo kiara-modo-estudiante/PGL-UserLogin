@@ -1,5 +1,5 @@
 import { Stack } from "expo-router";
-import { BookProvider } from "../../context/BookContext";
+import { BookProvider } from "../../../context/BookContext";
 
 export default function Layout() {
   return (
