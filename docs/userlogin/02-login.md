@@ -2,7 +2,7 @@
 
 # Pantalla de Inicio de Sesión
 
-![Pantalla de Login](../images/userlogin/02-doc/login.png)
+![Pantalla de Login](../images/userlogin/02-doc/login.PNG)
 
 ### Requisitos Implementados
 
@@ -33,11 +33,11 @@
 
 #### Login Fallido
 
-![Login Fallido](../images/userlogin/02-doc/failed_login.png)
+![Login Fallido](../images/userlogin/02-doc/failed_login.PNG)
 
 #### Login Exitoso
 
-![Login Exitoso](../images/userlogin/02-doc/succesful_login.png)
+![Login Exitoso](../images/userlogin/02-doc/succesful_login.jpg)
 
 ### Ficheros Relacionados
 
