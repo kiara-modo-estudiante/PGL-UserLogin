@@ -103,10 +103,21 @@ export async function loginUser(
     }
 
     const data = await response.json();
+    const token = data.object?.token;
+
+    if (!token) {
+      console.error("El token no está presente en la respuesta.");
+      return {
+        isValid: false,
+        message: "No se recibió un token válido del servidor.",
+      };
+    }
+
+    console.log("Token recibido: ", token);
     return {
       isValid: true,
       message: "¡Inicio de sesión exitoso!",
-      token: data.token,
+      token: token,
     };
   } catch (error) {
     return {
