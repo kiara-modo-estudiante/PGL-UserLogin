@@ -70,17 +70,13 @@ En el archivo [`storage.ts`](../../services/storage.ts), encontramos las funcion
 
 ### Capturas de Pantalla
 
-#### Pantalla de Carga (Verificación del Token)
-
-![Pantalla de Carga](../images/userlogin/03-doc/loading_screen.png)
-
 #### Redirección a Login (Sin Token)
 
-![Redirección a Login](../images/userlogin/03-doc/redirect_to_login.png)
+![Redirección a Login](../images/userlogin/03-doc/logged.png)
 
 #### Drawer Visible (Con Token)
 
-![Drawer Visible](../images/userlogin/03-doc/drawer_with_token.png)
+![Drawer Visible](../images/userlogin/03-doc/logged.png)
 
 ### Ficheros Modificados
 
