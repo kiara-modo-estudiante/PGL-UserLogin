@@ -125,3 +125,32 @@ export async function loginUser(
     };
   }
 }
+
+export async function getWelcomeMessage(token: string): Promise<string> {
+  try {
+    const response = await fetch(`http://${IP}:${PORT}/welcome`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    if (!response.ok) {
+      switch (response.status) {
+        case 401:
+          throw new Error("No autorizado. Verifica tu token.");
+        case 500:
+          throw new Error("Error interno del servidor. Intenta más tarde.");
+        default:
+          throw new Error("Error desconocido. Intenta más tarde.");
+      }
+    }
+
+    const data = await response.json();
+    return data.object;
+  } catch (error) {
+    console.error(error);
+    throw new Error("Error de red. Verifica tu conexión a Internet.");
+  }
+}
