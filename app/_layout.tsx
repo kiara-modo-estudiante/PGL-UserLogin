@@ -1,29 +1,46 @@
-import { Drawer } from "expo-router/drawer";
+import React, { useEffect, useState } from "react";
+import { Stack } from "expo-router";
+import { View, ActivityIndicator } from "react-native";
+import { getToken } from "../services/storage";
 
 export default function Layout() {
-  return (
-    <Drawer>
-      <Drawer.Screen
-        name="index"
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function checkToken() {
+      const token = await getToken();
+      setIsAuthenticated(token !== null);
+      setLoading(false);
+    }
+    checkToken();
+  }, []);
+
+  if (loading) {
+    return (
+      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+        <ActivityIndicator size="large" />
+      </View>
+    );
+  }
+
+  return isAuthenticated ? (
+    <Stack>
+      <Stack.Screen
+        name="(drawer)/welcome"
         options={{
-          drawerLabel: "Home",
-          title: "Home",
+          headerShown: false,
         }}
       />
-      <Drawer.Screen
-        name="portfolio"
+    </Stack>
+  ) : (
+    <Stack>
+      <Stack.Screen
+        name="(user)/login"
         options={{
-          drawerLabel: "Portfolio",
-          title: "Portfolio",
+          headerShown: false,
         }}
       />
-      <Drawer.Screen
-        name="books"
-        options={{
-          drawerLabel: "Libros",
-          title: "Libros",
-        }}
-      />
-    </Drawer>
+    </Stack>
   );
 }
