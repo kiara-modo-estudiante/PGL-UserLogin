@@ -1,4 +1,4 @@
-[<- Volver al README](../README.md)
+[<- Volver al README](../../README.md)
 
 # Modificación para Redirigir al Usuario sin Token
 
@@ -87,4 +87,4 @@ En el archivo [`storage.ts`](../../services/storage.ts), encontramos las funcion
 - **Servicios de API:** [`api.ts`](../../services/api.ts)
 - **Gestión del Token:** [`storage.ts`](../../services/storage.ts)
 
-[<- Volver al README](../README.md)
+[<- Volver al README](../../README.md)

@@ -1,4 +1,4 @@
-[<- Volver al README](../README.md)
+[<- Volver al README](../../README.md)
 
 # Botón en la pantalla de Bienvenida para mostrar un mensaje de alerta
 
@@ -43,4 +43,4 @@ A continuación, se incluyen capturas de pantalla que muestran el botón añadid
 2. **Alerta con el mensaje de bienvenida**  
    ![Alerta de bienvenida](../images/userlogin/05-doc/welcome_message.PNG)
 
-[<- Volver al README](../README.md)
+[<- Volver al README](../../README.md)

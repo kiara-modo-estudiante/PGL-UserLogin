@@ -1,4 +1,4 @@
-[<- Volver al README](../README.md)
+[<- Volver al README](../../README.md)
 
 # Pantalla de Inicio de Sesión
 
@@ -48,4 +48,4 @@
 - **Tipos de Usuario:** [`user.ts`](../../types/user.ts)
 - **Estilos y Temas:** [`color.ts`](../../theme/color.ts), [`typography.ts`](../../theme/typography.ts)
 
-[<- Volver al README](../README.md)
+[<- Volver al README](../../README.md)

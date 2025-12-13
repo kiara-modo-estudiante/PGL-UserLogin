@@ -1,4 +1,4 @@
-[<- Volver al README](../README.md)
+[<- Volver al README](../../README.md)
 
 # Registro de un nuevo usuario
 
@@ -53,4 +53,4 @@ Estas funciones devuelven un objeto `ValidationResult`, con los atributos `isVal
 - [`/utils/inputValidation.ts`](../../utils/inputValidation.ts): Funciones para validar el email y la contraseña.
 - [`/types/user.ts`](../../types/user.ts): Definición del tipo `ValidationResult` utilizado en las validaciones y respuestas de la API.
 
-[<- Volver al README](../README.md)
+[<- Volver al README](../../README.md)

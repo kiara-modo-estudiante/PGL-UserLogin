@@ -1,4 +1,4 @@
-[<- Volver al README](../README.md)
+[<- Volver al README](../../README.md)
 
 # Implementación del Cierre de Sesión
 
@@ -32,4 +32,4 @@
 - **Almacenamiento del Token:** [`storage.ts`](../../services/storage.ts)
 - **Estilos y Temas:** [`color.ts`](../../theme/color.ts), [`styles.ts`](../../theme/styles.ts)
 
-[<- Volver al README](../README.md)
+[<- Volver al README](../../README.md)
