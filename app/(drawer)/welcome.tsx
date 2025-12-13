@@ -2,9 +2,17 @@ import React from "react";
 import { View, Text, StyleSheet, Image, Pressable } from "react-native";
 import { globalStyles, lightColorPalette } from "../../theme/styles";
 import { useRouter } from "expo-router";
+import { removeToken } from "../../services/storage";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
+import colors from "../../theme/color";
 
 const Home = () => {
   const router = useRouter();
+
+  const handleLogout = async () => {
+    await removeToken();
+    router.replace("/login");
+  };
 
   return (
     <View style={globalStyles.body}>
@@ -21,6 +29,14 @@ const Home = () => {
         onPress={() => router.navigate("/portfolio")}
       >
         <Text style={styles.buttonText}>Visita mi portfolio</Text>
+      </Pressable>
+
+      <Pressable style={styles.logoutButton} onPress={handleLogout}>
+        <MaterialCommunityIcons
+          name="exit-to-app"
+          size={24}
+          style={styles.logoutIcon}
+        />
       </Pressable>
     </View>
   );
@@ -52,5 +68,27 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     fontSize: 20,
+  },
+  logoutButton: {
+    position: "absolute",
+    bottom: 0,
+    right: 20,
+    backgroundColor: colors.warning,
+    color: colors.secondaryText,
+    width: 60,
+    height: 60,
+    borderRadius: 30,
+    justifyContent: "center",
+    alignItems: "center",
+    elevation: 5,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.3,
+    shadowRadius: 3,
+  },
+  logoutIcon: {
+    color: "white",
+    fontSize: 24,
+    fontWeight: "bold",
   },
 });
