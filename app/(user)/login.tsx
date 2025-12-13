@@ -40,10 +40,10 @@ const Login = () => {
       try {
         if (response.token) {
           await saveToken(response.token);
+          console.debug(response.token);
         }
-        Alert.alert("Éxito", response.message, [
-          { text: "OK", onPress: () => router.push("/welcome") },
-        ]);
+        Alert.alert("Éxito", response.message);
+        router.replace("/(drawer)/welcome");
       } catch (error) {
         Alert.alert("Error", "No se pudo guardar el token.");
       }
@@ -80,7 +80,7 @@ const Login = () => {
         <Text style={typography.label}>Don't have an account?</Text>
         <Text
           style={styles.registerLink}
-          onPress={() => router.push("/user/register")}
+          onPress={() => router.push("/(user)/register")}
         >
           Register here
         </Text>

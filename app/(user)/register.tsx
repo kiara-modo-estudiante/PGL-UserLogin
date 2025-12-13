@@ -7,9 +7,7 @@ import {
   Pressable,
 } from "react-native";
 import React, { useState } from "react";
-import { useRouter } from "expo-router";
 import typography from "../../theme/typography";
-import { ValidationResult } from "../../types/user";
 import colors from "../../theme/color";
 import { validateEmail, validatePassword } from "../../utils/inputValidation";
 import { registerUser } from "../../services/api";
@@ -18,8 +16,6 @@ const Register = () => {
   const [fullname, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [pswd, setPassword] = useState("");
-
-  const router = useRouter();
 
   async function submitForm(): Promise<void> {
     const emailValidation = validateEmail(email);
@@ -34,26 +30,14 @@ const Register = () => {
       return;
     }
 
-    const response: ValidationResult = await registerUser(
-      fullname,
-      email,
-      pswd
-    );
-
-    if (!response.isValid) {
-      Alert.alert("Error", response.message);
-    } else {
-      router.push("/user/login");
-    }
+    registerUser(fullname, email, pswd);
   }
 
   return (
     <View style={styles.container}>
-      <Text style={[typography.subheading, styles.title]}>
-        Registro de Usuario
-      </Text>
+      <Text style={[typography.subheading, styles.title]}>Register</Text>
       <View style={styles.inputField}>
-        <Text style={typography.label}>Nombre completo: </Text>
+        <Text style={typography.label}>Full Name: </Text>
         <TextInput
           placeholder="Pepe Benavente"
           style={styles.input}
@@ -62,7 +46,7 @@ const Register = () => {
         />
       </View>
       <View style={styles.inputField}>
-        <Text style={typography.label}>Email: </Text>
+        <Text style={typography.label}>Email address: </Text>
         <TextInput
           placeholder="pepe@email.es"
           keyboardType="email-address"
@@ -72,7 +56,7 @@ const Register = () => {
         />
       </View>
       <View style={styles.inputField}>
-        <Text style={typography.label}>Contraseña: </Text>
+        <Text style={typography.label}>Password: </Text>
         <TextInput
           placeholder="Password"
           secureTextEntry
@@ -82,13 +66,7 @@ const Register = () => {
         />
       </View>
       <Pressable onPress={submitForm} style={styles.button}>
-        <Text style={typography.button}>Regístrate</Text>
-      </Pressable>
-      <Pressable
-        onPress={() => router.push("/user/login")}
-        style={styles.button}
-      >
-        <Text style={typography.button}>Ya tengo una cuenta</Text>
+        <Text style={typography.button}>Register Now!</Text>
       </Pressable>
     </View>
   );
@@ -106,7 +84,6 @@ const styles = StyleSheet.create({
   },
   title: {
     textAlign: "center",
-    marginBottom: 20,
   },
   inputField: {
     marginBottom: 10,
@@ -122,8 +99,7 @@ const styles = StyleSheet.create({
     padding: 10,
     borderRadius: 15,
     alignItems: "center",
-    width: 200,
+    width: 150,
     alignSelf: "center",
-    marginTop: 10,
   },
 });
