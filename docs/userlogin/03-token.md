@@ -72,11 +72,11 @@ En el archivo [`storage.ts`](../../services/storage.ts), encontramos las funcion
 
 #### Redirección a Login (Sin Token)
 
-![Redirección a Login](../images/userlogin/03-doc/logged.png)
+![Redirección a Login](../images/userlogin/03-doc/login.PNG)
 
 #### Drawer Visible (Con Token)
 
-![Drawer Visible](../images/userlogin/03-doc/logged.png)
+![Drawer Visible](../images/userlogin/03-doc/logged.PNG)
 
 ### Ficheros Modificados
 
