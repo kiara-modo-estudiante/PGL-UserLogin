@@ -41,6 +41,6 @@ Este enfoque asegura una navegación fluida y permite mantener el código modula
 
 ## Captura de Pantalla
 
-![Pantalla Bienvenida](./images/navigation/03-doc/welcome.jpeg)
+![Pantalla Bienvenida](../images/navigation/03-doc/welcome.jpeg)
 
 [<- Volver al README](../README.md)

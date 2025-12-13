@@ -2,7 +2,7 @@
 
 # Implementación del Drawer y pantalla inicial
 
-![Drawer](./images/navigation/04-doc/drawer.gif)
+![Drawer](../images/navigation/04-doc/drawer.gif)
 
 Desde el inicio del desarrollo de esta aplicación, se ha seguido un enfoque estructurado para implementar la navegación y las pantallas. A continuación, se detalla cómo se ha llevado a cabo este proceso.
 

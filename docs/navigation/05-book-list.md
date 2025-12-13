@@ -6,7 +6,7 @@ La implementación de la lista de libros se ha realizado reutilizando un proyect
 
 [Accede al proyecto y toda su documentación haciendo clic aquí.](https://github.com/kiara-modo-estudiante/PGL-MyList-Books)
 
-![Books](./images/navigation/05-doc/books.png)
+![Books](../images/navigation/05-doc/books.png)
 
 A continuación, se describen los elementos principales:
 

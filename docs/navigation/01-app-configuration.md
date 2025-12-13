@@ -2,9 +2,9 @@
 
 # Configuración básica del proyecto Expo
 
-| ![Home Screen](./images/navigation/01-doc/home.jpeg) | ![Drawer Screen](./images/navigation/01-doc/drawer.jpeg) |
-| ---------------------------------------------------- | -------------------------------------------------------- |
-| Pantalla de inicio                                   | Despliegue de drawer                                     |
+| ![Home Screen](../images/navigation/01-doc/home.jpeg) | ![Drawer Screen](../images/navigation/01-doc/drawer.jpeg) |
+| ----------------------------------------------------- | --------------------------------------------------------- |
+| Pantalla de inicio                                    | Despliegue de drawer                                      |
 
 Para la correcta configuración del proyecto, de manera que podamos trabajar con Expo Router para navegación entre pantallas a través de un Drawer (como vemos en la imagen superior), se han seguido los pasos indicados en al documentación oficial de Expo Go:
 
