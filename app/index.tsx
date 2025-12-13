@@ -8,7 +8,7 @@ const Index = () => {
       const token = await getToken();
 
       if (!token || token == null) {
-        router.replace("/(user)/login");
+        router.replace("/login");
       } else {
         router.replace("/(drawer)/welcome");
       }
