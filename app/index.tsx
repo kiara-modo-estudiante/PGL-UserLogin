@@ -1,56 +1,23 @@
-import React from "react";
-import { View, Text, StyleSheet, Image, Pressable } from "react-native";
-import { globalStyles, lightColorPalette } from "../theme/styles";
-import { useRouter } from "expo-router";
+import React, { useEffect } from "react";
+import { router } from "expo-router";
+import { getToken } from "../services/storage";
 
-const Home = () => {
-  const router = useRouter();
+const Index = () => {
+  useEffect(() => {
+    const checkAuth = async () => {
+      const token = await getToken();
 
-  return (
-    <View style={globalStyles.body}>
-      <View style={styles.welcomeContainer}>
-        <Text style={styles.title}>¡Bienvenido/a a mi aplicación!</Text>
-        <Image
-          source={require("../assets/images/welcome.gif")}
-          style={styles.image}
-        />
-      </View>
+      if (!token || token == null) {
+        router.replace("/(user)/login");
+      } else {
+        router.replace("/(drawer)/welcome");
+      }
+    };
 
-      <Pressable
-        style={styles.button}
-        onPress={() => router.navigate("/portfolio")}
-      >
-        <Text style={styles.buttonText}>Visita mi portfolio</Text>
-      </Pressable>
-    </View>
-  );
+    checkAuth();
+  }, []);
+
+  return null;
 };
 
-export default Home;
-
-const styles = StyleSheet.create({
-  welcomeContainer: {
-    width: "100%",
-    justifyContent: "center",
-    alignItems: "center",
-    marginBottom: 50,
-  },
-  title: {
-    fontSize: 20,
-    marginVertical: 25,
-    fontWeight: 600,
-    textAlign: "center",
-  },
-  image: {
-    width: "80%",
-  },
-  button: {
-    backgroundColor: lightColorPalette.secondary,
-    paddingVertical: 10,
-    paddingHorizontal: 25,
-    borderRadius: 20,
-  },
-  buttonText: {
-    fontSize: 20,
-  },
-});
+export default Index;
