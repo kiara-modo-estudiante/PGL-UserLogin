@@ -113,7 +113,6 @@ export async function loginUser(
       };
     }
 
-    console.log("Token recibido: ", token);
     return {
       isValid: true,
       message: "¡Inicio de sesión exitoso!",

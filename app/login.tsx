@@ -40,7 +40,6 @@ const Login = () => {
       try {
         if (response.token) {
           await saveToken(response.token);
-          console.debug(response.token);
         }
         Alert.alert("Éxito", response.message);
         router.replace("/(drawer)/welcome");
