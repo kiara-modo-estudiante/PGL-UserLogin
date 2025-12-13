@@ -24,16 +24,24 @@ export default function Layout() {
     );
   }
 
-  return isAuthenticated ? (
-    <Stack>
-      <Stack.Screen
-        name="(drawer)/welcome"
-        options={{
+  if (isAuthenticated) {
+    return (
+      <Stack
+        screenOptions={{
           headerShown: false,
         }}
-      />
-    </Stack>
-  ) : (
+      >
+        <Stack.Screen
+          name="(drawer)/welcome"
+          options={{
+            headerShown: false,
+          }}
+        />
+      </Stack>
+    );
+  }
+
+  return (
     <Stack>
       <Stack.Screen
         name="login"
