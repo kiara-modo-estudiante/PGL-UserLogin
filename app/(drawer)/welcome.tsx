@@ -5,6 +5,9 @@ import { useRouter } from "expo-router";
 import { removeToken } from "../../services/storage";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import colors from "../../theme/color";
+import { Alert } from "react-native";
+import { getWelcomeMessage } from "../../services/api";
+import { getToken } from "../../services/storage";
 
 const Home = () => {
   const router = useRouter();
@@ -12,6 +15,24 @@ const Home = () => {
   const handleLogout = async () => {
     await removeToken();
     router.replace("/login");
+  };
+
+  const handleGetWelcomeMessage = async () => {
+    try {
+      const token = await getToken();
+      if (!token) {
+        Alert.alert("Error", "No se encontró un token válido.");
+        return;
+      }
+
+      const message = await getWelcomeMessage(token);
+      Alert.alert("Mensaje de Bienvenida", message);
+    } catch (error) {
+      Alert.alert(
+        "Error",
+        error instanceof Error ? error.message : "Ocurrió un error inesperado."
+      );
+    }
   };
 
   return (
@@ -31,9 +52,23 @@ const Home = () => {
         <Text style={styles.buttonText}>Visita mi portfolio</Text>
       </Pressable>
 
-      <Pressable style={styles.logoutButton} onPress={handleLogout}>
+      <Pressable
+        style={[styles.iconButton, styles.logoutButton]}
+        onPress={handleLogout}
+      >
         <MaterialCommunityIcons
           name="exit-to-app"
+          size={24}
+          style={styles.logoutIcon}
+        />
+      </Pressable>
+
+      <Pressable
+        style={[styles.iconButton, styles.welcomeButton]}
+        onPress={handleGetWelcomeMessage}
+      >
+        <MaterialCommunityIcons
+          name="message-star-outline"
           size={24}
           style={styles.logoutIcon}
         />
@@ -69,15 +104,13 @@ const styles = StyleSheet.create({
   buttonText: {
     fontSize: 20,
   },
-  logoutButton: {
+  iconButton: {
     position: "absolute",
     bottom: 0,
-    right: 20,
-    backgroundColor: colors.warning,
-    color: colors.secondaryText,
     width: 60,
     height: 60,
     borderRadius: 30,
+    color: colors.secondaryText,
     justifyContent: "center",
     alignItems: "center",
     elevation: 5,
@@ -85,6 +118,14 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.3,
     shadowRadius: 3,
+  },
+  welcomeButton: {
+    left: 20,
+    backgroundColor: "#32bd17",
+  },
+  logoutButton: {
+    right: 20,
+    backgroundColor: colors.warning,
   },
   logoutIcon: {
     color: "white",
